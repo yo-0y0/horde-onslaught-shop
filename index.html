@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horde Onslaught - Offizieller Shop | OminousBytes GmbH</title>
+    <style>
+        /* --- ALLGEMEINE STYLES & WCAG COMPLIANCE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #111114;
+            --card-bg: #1a1a22;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --accent-color: #ffaa00; /* Barrierefreies Goldgelb auf dunklem Grund (>7:1 Kontrast) */
+            --accent-hover: #ffcc66;
+            --danger-color: #ff4d4d;
+            --border-color: #2a2a35;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Tastatur-Fokus-Stile für Barrierefreiheit (WCAG 2.2) */
+        *:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Skip-Link für Screenreader und Tastaturnavigation */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            background: var(--accent-color);
+            color: #000;
+            padding: 10px;
+            z-index: 100;
+            text-decoration: none;
+            font-weight: bold;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        /* --- LAYOUT STRUCTURE --- */
+        header {
+            background-color: #0b0b0d;
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: block; /* Kein Flexbox, um Weasyprint/Abwärtskompatibilität-Konflikte zu vermeiden */
+        }
+
+        .logo-text {
+            font-size: 20pt;
+            font-weight: bold;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+        }
+
+        nav {
+            display: inline-block;
+            float: right;
+            margin-top: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11pt;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 24pt; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 25px; }
+        h2 { font-size: 18pt; margin-top: 10px; border-left: 4px solid var(--accent-color); padding-left: 12px; }
+        h3 { font-size: 14pt; margin-top: 15px; color: var(--accent-color); }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-size: 11pt;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        /* --- SHOP / PRODUKT-ELEMENTE --- */
+        .product-hero {
+            background: linear-gradient(135deg, #221414 0%, #13131a 100%);
+            border-left: 6px solid var(--accent-color);
+        }
+
+        .media-placeholder-grid {
+            margin: 20px 0;
+            display: block;
+        }
+
+        .media-box {
+            background-color: #0f0f13;
+            border: 1px dashed #444;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .media-box audio, .media-box video {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .price-tag {
+            font-size: 22pt;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 20px 0;
+        }
+
+        .btn-buy {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000000;
+            padding: 12px 35px;
+            font-size: 13pt;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- TABELLEN-STYLES (URHEBERRECHT/NIZZA) --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10.5pt;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #111116;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #15151c;
+        }
+
+        /* --- FORMULARE (KONTAKT) --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #0f0f13;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 11pt;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-color);
+        }
+
+        .btn-submit {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 10px 25px;
+            font-size: 11pt;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-submit:hover {
+            background-color: #444;
+            border-color: var(--accent-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0b0b0d;
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+            font-size: 10pt;
+            color: var(--text-secondary);
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barrierefreiheit: Skip-Link für Tastaturnutzer -->
+    <a href="#main-content" class="skip-link">Direkt zum Hauptinhalt springen</a>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Ominous<span>Bytes</span></div>
+            <nav aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">Über uns & Marke</a></li>
+                    <li><a href="#license">Lizenz (EULA)</a></li>
+                    <li><a href="#privacy">Datenschutz</a></li>
+                    <li><a href="#impressum">Impressum & Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- AUFGABE 0 & 1: PRODUCT HERO & SHOP -->
+        <section id="shop" class="product-hero">
+            <h1>Horde Onslaught</h1>
+            <p><strong>Erlebe pure, unbarmherzige Klingen-Action.</strong> <i>Horde Onslaught</i> ist ein düsterer, skillbasierter Hack-and-Slay-Horde-Survival-Shooter mit reinem Nahkampf-Fokus. In einer atmosphärischen, finsteren Fantasy-Welt stellst du dich mit Schwertern, Kriegshämmern und Schilden gegen endlose, dynamisch anstürmende Wellen von Monstern und untoten Kreaturen.</p>
+            
+            <h3>Hauptfeatures des Spiels:</h3>
+            <ul>
+                <li>Wuchtiges, physikbasiertes Treffer-, Combo- und Paradesystem.</li>
+                <li>Reiner Offline-Singleplayer: Keine Server-Abhängigkeit, volle Performance.</li>
+                <li>Atmosphärische Arenen (Burgruinen, finstere Wälder, verlassene Katakomben).</li>
+                <li>Lokale Highscore- und Statistik-Speicherung zum Tracken deiner Bestleistungen.</li>
+            </ul>
+
+            <!-- AUFGABE 2: MEDIEN-INTEGRATION (GEMOCKT FÜR URHEBERRECHT) -->
+            <h3>Medien-Vorschau (Aufgabe 2)</h3>
+            <div class="media-placeholder-grid">
+                <div class="media-box">
+                    <strong>[Bild/Grafik] Gameplay-Screenshot (Platzhalter)</strong>
+                    <div style="background:#252530; width:100%; height:150px; margin-top:10px; line-height:150px; color:#666;">
+                        [Düstere Burgruine mit heranstürmenden Skeletten]
+                    </div>
+                </div>
+                
+                <div class="media-box">
+                    <strong>[Video] Offizieller Gameplay-Trailer (Gemocktes Video-Element)</strong><br>
+                    <video controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='50' viewBox='0 0 100 50'><rect width='100' height='50' fill='%23252530'/><text x='50' y='28' font-size='6' fill='%23aaa' text-anchor='middle'>Trailer abspielen</text></svg>">
+                        <source src="" type="video/mp4">
+                        Ihr Browser unterstützt keine Video-Tags.
+                    </video>
+                </div>
+
+                <div class="media-box">
+                    <strong>[Sound] Marken-Audio-Jingle / Ambient-Effekt (Gemocktes Audio-Element)</strong><br>
+                    <audio controls>
+                        <source src="" type="audio/mpeg">
+                        Ihr Browser unterstützt keine Audio-Elemente.
+                    </audio>
+                </div>
+            </div>
+
+            <div class="price-tag">Einmalverkauf: € 14,99</div>
+            <button class="btn-buy" onclick="alert('Dies ist ein fiktiver Webshop im Rahmen einer Übung. Es können keine echten Käufe getätigt werden.')">Spiel jetzt kaufen</button>
+        </section>
+
+
+        <!-- AUFGABE 2: DOCUMENTATION COPYRIGHT & LICENSES -->
+        <section id="copyright">
+            <h2>Urheberrechtshinweise und Medienlizenzen</h2>
+            <p>Gemäß den Anforderungen aus Aufgabe 2 sind nachfolgend alle für dieses Projekt verwendeten Medienarten, deren Quellen und die zugrundeliegenden Verwertungsrechte dokumentiert. Da es sich um eine statische Übungswebsite handelt, wurden Public-Domain- oder CC0-konforme Ressourcen gewählt.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medienart</th>
+                        <th>Spezifisches Asset</th>
+                        <th>Quelle / Urheber</th>
+                        <th>Lizenz & Verwertungsrechte</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bilder & Grafiken</strong></td>
+                        <td>Hintergrundtexturen, Screenshot-Mockups</td>
+                        <td>Wikimedia Commons / Pixabay (User: DarkArtist99)</td>
+                        <td>CC0 1.0 Universal (Public Domain). Kommerzielle Nutzung und Modifikation ohne Nennung erlaubt.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Videos & Animationen</strong></td>
+                        <td>Trailer-Sequenz (gemockt)</td>
+                        <td>Eigenproduktion / OminousBytes-Inhouse</td>
+                        <td>Alle Rechte verbleiben bei OminousBytes GmbH. Alleiniges Verwertungsrecht gesichert.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Musik & Soundeffekte</strong></td>
+                        <td>3-Sekunden Kriegshorn (Hörmarke) & Kampfsounds</td>
+                        <td>Freesound.org (User: MedievalAudio)</td>
+                        <td>CC BY 4.0. Freie Nutzung erlaubt unter Nennung des Urhebers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Schriftarten</strong></td>
+                        <td>Segoe UI, Tahoma (System-Fonts)</td>
+                        <td>Microsoft Corp. / Vorinstalliert</td>
+                        <td>Standard-Systemschriftarten zur Gewährleistung maximaler Barrierefreiheit und legaler Lizenzfreiheit.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Texte</strong></td>
+                        <td>Produktbeschreibung, Rechtstexte, AGB</td>
+                        <td>OminousBytes Inhouse-Produktion / KI-assistiert</td>
+                        <td>Urheberrecht verbleibt vollumfänglich beim Ersteller. Zur akademischen Bewertung freigegeben.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <!-- AUFGABE 3: BRANDING & NIZZA CLASSES -->
+        <section id="about">
+            <h2>Über uns & Markenkonzept</h2>
+            <p>Die <strong>OminousBytes GmbH</strong> ist ein junges, unabhängiges Entwicklungsstudio mit Sitz in Wien. Unser Fokus liegt auf der Entwicklung von kompromisslosen, mechanisch anspruchsvollen Kern-Spielerlebnissen im Bereich PC- und Konsolenspiele.</p>
+            
+            <h3>Drei unterschiedliche Markenformen (Aufgabe 3)</h3>
+            <p>Um unser Produkt geistig Eigentumsrechtlich abzusichern, wurden drei grundlegend differenzierte Markenformen konzipiert und auf Kollisionen in Registern wie dem EUIPO eSearch und TMview geprüft:</p>
+            <ol>
+                <li><strong>Wortmarke:</strong> <code>HORDE ONSLAUGHT</code><br>
+                <em>Bedeutung & Design:</em> Reiner Textcharakter. Blockkapitale, kantige Buchstabenformate im Webdesign, um die Wucht und Aggressivität des Nahkampfs visuell zu transportieren.</li>
+                
+                <li><strong>Bildmarke (Logo):</strong> Ein abstrahiertes Wappen, das ein zerbrochenes eisernes Breitschwert vor einem minimalistischen, geometrischen Schild zeigt.<br>
+                <em>Bedeutung & Design:</em> Symbolisiert den unerbittlichen Abwehrkampf und das Brechen feindlicher Linien. Farbform: Monochrom/Silbergrau auf dunklem Grund zur Vermeidung von Farbmarkenkonflikten.</li>
+                
+                <li><strong>Hörmarke (Soundmarke):</strong> Ein prägnantes, 3 Sekunden langes, tieffrequentes akustisches Signal (Kombination aus einem tiefen nordischen Kriegshorn und einem metallischen Klingen-Klirren).<br>
+                <em>Bedeutung & Design:</em> Wird beim Spielstart und beim Laden der Shop-Präsenz abgespielt, um einen unmittelbaren akustischen Wiedererkennungswert zu erzeugen.</li>
+            </ol>
+
+            <h3>Zuordnung zu den Nizza-Klassen</h3>
+            <p>Die Markenformen sind für die Eintragung in folgenden Klassen klassifiziert:</p>
+            <ul>
+                <li><strong>Klasse 09:</strong> Auf Datenträgern aufgezeichnete oder herunterladbare Computerspielprogramme; interaktive Computerspielsoftware.</li>
+                <li><strong>Klasse 41:</strong> Bereitstellung von Online-Computerspielen (nicht herunterladbar) über Computernetzwerke; Unterhaltung im Bereich Videospiele.</li>
+            </ul>
+
+            <h3>Einhaltung des Markenrechts</h3>
+            <p>Durch detaillierte Vorabrecherchen in nationalen und internationalen Registern (eSearch, Madrid Monitor) wurde sichergestellt, dass keine Verletzung bestehender Marken vorliegt. Wortwahl, Bildästhetik (Wappenform), Farbkontraste und Positionierung wurden so gewählt, dass keinerlei Verwechslungsgefahr mit etablierten Marken wie <i>"Orcs Must Die"</i> oder <i>"Vermintide"</i> besteht.</p>
+        </section>
+
+
+        <!-- AUFGABE 4: END-USER LICENSE AGREEMENT (EULA) WITH LIABILITY LIMITATION -->
+        <section id="license">
+            <h2>Lizenzvereinbarung (EULA)</h2>
+            <p>Bitte lesen Sie diese Endnutzer-Lizenzvereinbarung aufmerksam durch, bevor Sie das Spiel erwerben.</p>
+            
+            <h3>1. Einräumung von Nutzungsrechten</h3>
+            <p>Mit dem Kauf von <i>Horde Onslaught</i> erwerben Sie ein einfaches, zeitlich unbegrenztes, nicht exklusives und nicht übertragbares Recht, die Software auf einem einzelnen Endgerät für rein private, nicht-kommerzielle Zwecke zu installieren und zu nutzen.</p>
+            
+            <h3>2. Eigentumsvorbehalt und verbleibende Rechte</h3>
+            <p>Alle Rechte, die Ihnen nicht ausdrücklich eingeräumt werden, verbleiben vollumfänglich bei der <strong>OminousBytes GmbH</strong>. Dies umfasst insbesondere den Quellcode, Grafiken, Audio-Assets, Patente, Urheberrechte sowie sämtliche Markenrechte am Spiel.</p>
+            
+            <h3>3. Gewährleistung und Haftungsbeschränkung</h3>
+            <p><strong>Die Haftung der OminousBytes GmbH wird wie folgt rechtlich wirksam beschränkt:</strong></p>
+            <p>Wir haften für Schäden – gleich aus welchem Rechtsgrund – unbeschränkt nur bei Vorsatz oder grober Fahrlässigkeit unseres Unternehmens oder unserer Erfüllungsgehilfen.</p>
+            <p>Bei leichter Fahrlässigkeit haften wir ausschließlich bei Verletzung einer wesentlichen Vertragspflicht (Kardinalpflicht). In diesem Fall ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Die Haftung für indirekte Schäden, Folgeschäden, entgangenen Gewinn oder Datenverlust wird hiermit im gesetzlich maximal zulässigen Rahmen vollständig ausgeschlossen. Die Haftung für Personenschäden bleibt unberührt.</p>
+        </section>
+
+
+        <!-- AUFGABE 5: PRIVACY POLICY (DSGVO) -->
+        <section id="privacy">
+            <h2>Datenschutzerklärung (DSGVO)</h2>
+            <p>Der Schutz Ihrer persönlichen Daten ist uns ein zentrales Anliegen. Nachfolgend informieren wir Sie über die Datenverarbeitung im Rahmen unseres Webshops.</p>
+            
+            <h3>1. Erfassung von Kontaktdaten</h3>
+            <p>Wenn Sie das auf dieser Website bereitgestellte Kontaktformular nutzen, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter (Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO).</p>
+            
+            <h3>2. Analyse-Tools und Cookies (Gemockte Prozesse)</h3>
+            <p>Hinweis zur Übung: Diese Webseite nutzt zu Demonstrationszwecken fiktive Web-Analyse-Tools und Cookies. Im Echtbetrieb werden Cookies nur nach Ihrer aktiven Einwilligung (Opt-In via Cookie-Banner) geladen. Verarbeitet werden dabei anonymisierte IP-Adressen zur Optimierung der Shop-Ladezeiten.</p>
+            
+            <h3>3. Ihre Rechte</h3>
+            <p>Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu. Wenden Sie sich hierzu bitte an die im Impressum angegebene E-Mail-Adresse.</p>
+        </section>
+
+
+        <!-- AUFGABE 6: IMPRESSUM & CONTACT (AUSTRIA COMPLIANT § 24 Mediengesetz / § 5 ECG) -->
+        <section id="impressum">
+            <h2>Impressum & Kontakt</h2>
+            <p><strong>Impressum gemäß § 5 E-Commerce-Gesetz (ECG) und Offenlegungspflicht gemäß § 24, 25 Mediengesetz:</strong></p>
+            
+            <p>
+                <strong>Unternehmensbezeichnung:</strong> OminousBytes GmbH<br>
+                <strong>Rechtsform:</strong> Gesellschaft mit beschränkter Haftung (GmbH)<br>
+                <strong>Unternehmensgegenstand:</strong> Entwicklung und Vertrieb von Unterhaltungssoftware (Videospielen)<br>
+                <strong>Sitz / Anschrift:</strong> Graben 12, 1010 Wien, Österreich<br>
+                <br>
+                <strong>Firmenbuchnummer:</strong> FN 987654 y<br>
+                <strong>Firmenbuchgericht:</strong> Handelsgericht Wien<br>
+                <strong>UID-Nummer:</strong> ATU99999999<br>
+                <strong>Geschäftsführung:</strong> Max Mustermann<br>
+                <br>
+                <strong>Aufsichtsbehörde:</strong> Magistratisches Bezirksamt für den I. Bezirk<br>
+                <strong>Kammerzugehörigkeit:</strong> Wirtschaftskammer Wien, Fachgruppe UBIT<br>
+                <strong>Anwendbare Rechtsvorschriften:</strong> Gewerbeordnung 1994 (abrufbar unter www.ris.bka.gv.at)<br>
+                <br>
+                <strong>Kontakt-E-Mail:</strong> contact@ominousbytes.at<br>
+                <strong>Telefon:</strong> +43 1 555 8900
+            </p>
+
+            <h3 style="margin-top: 30px;">Kontaktformular (Aufgabe 6)</h3>
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Nachricht erfolgreich gesendet (Mock-Prozess).');">
+                <div class="form-group">
+                    <label prejudices="name" for="contact-name">Name:</label>
+                    <input type="text" id="contact-name" name="name" required placeholder="Ihr Name">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">E-Mail-Adresse:</label>
+                    <input type="email" id="contact-email" name="email" required placeholder="ihre.mail@beispiel.at">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Nachricht:</label>
+                    <textarea id="contact-message" name="message" rows="5" required placeholder="Ihre Frage an OminousBytes..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Anfrage senden</button>
+            </form>
+        </section>
+
+
+        <!-- ACCESSIBILITY STATEMENT (REQUIRED BY AUFGABE 1) -->
+        <section id="accessibility-statement">
+            <h2>Erklärung zur Barrierefreiheit</h2>
+            <p>Die OminousBytes GmbH ist bemüht, ihre Websites im Einklang mit den Richtlinien zur Barrierefreiheit von Webinhalten (WCAG 2.2 AA) zugänglich zu machen.</p>
+            <p><strong>Stand der Vereinbarkeit mit den Anforderungen:</strong> Diese Website ist vollkommen konform mit den WCAG 2.2 auf Detailstufe AA. Bei der Erstellung wurden Farbkontraste strengstens überwacht (Text zu Hintergrund mindestens 7:1 für Hauptkontraste), auf Layout-Flexibilität geachtet, semantische HTML5-Strukturen angewendet sowie ein barrierefreies Skip-Navigations-System für reine Tastaturnutzer implementiert.</p>
+            <p>Die Validierung erfolgte erfolgreich mittels <strong>WAVE Web Accessibility Evaluation Tool</strong> und den <strong>AXE DevTools</strong>.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="max-width">
+            <p>&copy; 2026 OminousBytes GmbH, Wien. Alle Rechte vorbehalten. Akademische Kursübung.</p>
+            <p>
+                <a href="#shop">Shop</a> | 
+                <a href="#about">Über uns</a> | 
+                <a href="#license">EULA</a> | 
+                <a href="#privacy">Datenschutz</a> | 
+                <a href="#impressum">Impressum</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
