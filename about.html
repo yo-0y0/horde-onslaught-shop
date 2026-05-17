@@ -14,7 +14,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Shop</a></li>
-                    <li><a href="about.html" class="active">Über uns (Marke)</a></li>
+                    <li><a href="about.html" aria-current="page">Über uns (Marke)</a></li>
                     <li><a href="urheberrecht.html">Medienhinweise</a></li>
                 </ul>
             </nav>
@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <section>
             <h1>Über uns & Markenkonzept (Aufgabe 3)</h1>
             <p>Die <strong>OminousBytes GmbH</strong> ist ein unabhängiges Entwicklungsstudio mit Sitz in Wien.</p>
@@ -44,11 +44,16 @@
             <p>Die Markenformen sind für die Eintragung in folgenden Klassen klassifiziert:</p>
             <ul>
                 <li><strong>Klasse 09:</strong> Auf Datenträgern aufgezeichnete oder herunterladbare Software; interaktive Computerspielsoftware.</li>
-                <li><strong>Klasse 41:</strong> Unterhaltung im Bereich Videospiele. (Unsicher ob korrekte/greifende Klassifizierung - habe sie trotzdem hier aufgeführt.)</li>
+                <li><strong>Klasse 41:</strong> Unterhaltung im Bereich Videospiele.</li>
             </ul>
+
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <strong>Zuletzt aktualisiert:</strong> <time datetime="2026-05-17">17. Mai 2026</time>
+            </p>
         </section>
     </main>
-<footer>
+
+    <footer>
         <p>
             <a href="lizenz.html">EULA</a> | 
             <a href="datenschutz.html">Datenschutz</a> | 
@@ -56,7 +61,11 @@
             <a href="barrierefreiheit.html">Barrierefreiheit</a> |
             <a href="jugendschutz.html">Jugendschutz</a>
         </p>
-        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+        <p style="margin-top:10px;">&copy; <span id="year"></span> OminousBytes GmbH.</p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
             <div class="logo-text">Ominous<span>Bytes</span></div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Shop</a></li>
+                    <li><a href="index.html" aria-current="page">Shop</a></li>
                     <li><a href="about.html">Über uns (Marke)</a></li>
                     <li><a href="urheberrecht.html">Medienhinweise</a></li>
                 </ul>
@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <section class="product-hero">
             <h1>Horde Onslaught</h1>
             <p><strong>Erlebe pure, unbarmherzige Klingen-Action.</strong> Ein düsterer, skillbasierter Hack-and-Slay-Horde-Survival-Game mit reinem Nahkampf-Fokus.</p>
@@ -57,7 +57,7 @@
             <script>
                 function verifiziereAlter() {
                     const jahr = prompt("Jugendschutz-Überprüfung: Bitte geben Sie Ihr Geburtsjahr ein (YYYY):");
-                    if (jahr === null) return; // Abbrechen gedrückt
+                    if (jahr === null) return; 
                     
                     const aktuellesJahr = new Date().getFullYear();
                     const alter = aktuellesJahr - parseInt(jahr);
@@ -69,6 +69,10 @@
                     }
                 }
             </script>
+
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <strong>Zuletzt aktualisiert:</strong> <time datetime="2026-05-17">17. Mai 2026</time>
+            </p>
         </section>
     </main>
 
@@ -80,7 +84,11 @@
             <a href="barrierefreiheit.html">Barrierefreiheit</a> |
             <a href="jugendschutz.html">Jugendschutz</a>
         </p>
-        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+        <p style="margin-top:10px;">&copy; <span id="year"></span> OminousBytes GmbH.</p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

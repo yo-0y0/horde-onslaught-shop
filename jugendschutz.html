@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <section>
             <h1>Jugendschutzkonzept & Altersverifikation</h1>
             <p>Da unser Softwareprodukt "Horde Onslaught" explizite Gewaltdarstellungen enthält, fällt der Vertrieb unter die gesetzlichen Bestimmungen der landesrechtlichen Jugendschutzgesetze (z. B. <strong>§ 11 Wiener Jugendschutzgesetz - WJsG</strong>).</p>
@@ -38,6 +38,10 @@
 
             <h3>3. Umsetzung auf dieser Übungswebsite (Mock-Verfahren)</h3>
             <p>Da es sich um eine statische Website handelt, wird der Verifikationsprozess beim Klick auf "Produkt Kaufen" simuliert. Das System prüft mittels einer JavaScript-Eingabemaske das fiktive Geburtsdatum des Nutzers und verweigert bei einer Unterschreitung des 18. Lebensjahres den Zugriff auf den simulierten Kaufabschluss.</p>
+
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <strong>Zuletzt aktualisiert:</strong> <time datetime="2026-05-17">17. Mai 2026</time>
+            </p>
         </section>
     </main>
 
@@ -47,9 +51,13 @@
             <a href="datenschutz.html">Datenschutz</a> | 
             <a href="impressum.html">Impressum</a> | 
             <a href="barrierefreiheit.html">Barrierefreiheit</a> |
-            <a href="jugendschutz.html" class="active">Jugendschutz</a>
+            <a href="jugendschutz.html" aria-current="page">Jugendschutz</a>
         </p>
-        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+        <p style="margin-top:10px;">&copy; <span id="year"></span> OminousBytes GmbH.</p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

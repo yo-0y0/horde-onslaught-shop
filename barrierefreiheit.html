@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <section>
             <h1>Erklärung zur Barrierefreiheit (Aufgabe 1)</h1>
             <p>Die OminousBytes GmbH ist bemüht, ihre Website im Einklang mit den Richtlinien zur Barrierefreiheit von Webinhalten (WCAG 2.2 AA) vollumfänglich zugänglich zu machen.</p>
@@ -31,24 +31,33 @@
             <p>Diese Website ist konform mit den WCAG 2.2 auf Detailstufe AA. Folgende Maßnahmen wurden umgesetzt:</p>
             <ul>
                 <li><strong>Farbkontraste:</strong> Überwachung der Kontrastwerte. Der goldgelbe Akzentton auf dunkelgrauem Grund übertrifft das geforderte Mindestkontrastverhältnis von 4,5:1 (erreicht > 7:1).</li>
-                <li><strong>Semantik:</strong> Nutzung semantischer HTML5-Strukturen (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>) für eine saubere Interpretation durch Screenreader.</li>
+                <li><strong>Semantik:</strong> Nutzung semantischer HTML5-Strukturen (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>) für eine saubere Interpretation durch Screenreader. Alle interaktiven Elemente nutzen entsprechende WAI-ARIA Attribute (z.B. <code>aria-current</code>).</li>
                 <li><strong>Tastaturbedienbarkeit:</strong> Ein visuell versteckter "Skip-Link" am Seitenanfang ermöglicht es reinen Tastaturnutzern, die Navigation zu überspringen und direkt zum Hauptinhalt zu gelangen. Visuelle Fokus-Indikatoren (Outline) sind für alle interaktiven Elemente aktiv.</li>
             </ul>
 
-            <h3>Evaluierungsmethoden</h3>
+            <h3>Evaluierungsmethoden & Feedback</h3>
             <p>Die Validierung und Prüfung der Barrierefreiheit erfolgte erfolgreich mittels der etablierten Browser-Erweiterungen <strong>WAVE Web Accessibility Evaluation Tool</strong> sowie den <strong>AXE DevTools</strong>.</p>
+            <p>Zusätzlich wurden manuelle Tests mittels reiner Tastaturnavigation (Tab / Shift+Tab) durchgeführt. Sollten Sie auf Barrieren stoßen, die Sie an der Nutzung unserer Website hindern, kontaktieren Sie uns bitte unter <a href="mailto:accessibility@ominousbytes.at" style="color: var(--accent-color);">accessibility@ominousbytes.at</a>.</p>
+
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <strong>Zuletzt aktualisiert:</strong> <time datetime="2026-05-17">17. Mai 2026</time>
+            </p>
         </section>
     </main>
 
-<footer>
+    <footer>
         <p>
             <a href="lizenz.html">EULA</a> | 
             <a href="datenschutz.html">Datenschutz</a> | 
             <a href="impressum.html">Impressum</a> | 
-            <a href="barrierefreiheit.html">Barrierefreiheit</a> |
+            <a href="barrierefreiheit.html" aria-current="page">Barrierefreiheit</a> |
             <a href="jugendschutz.html">Jugendschutz</a>
         </p>
-        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+        <p style="margin-top:10px;">&copy; <span id="year"></span> OminousBytes GmbH.</p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

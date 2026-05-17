@@ -15,14 +15,14 @@
                 <ul>
                     <li><a href="index.html">Shop</a></li>
                     <li><a href="about.html">Über uns (Marke)</a></li>
-                    <li><a href="urheberrecht.html" class="active">Medienhinweise</a></li>
+                    <li><a href="urheberrecht.html" aria-current="page">Medienhinweise</a></li>
                 </ul>
             </nav>
             <div class="clear"></div>
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <section>
             <h1>Urheberrechtshinweise und Lizenzen (Aufgabe 2)</h1>
             <p><strong>Wichtiger Hinweis zur Erstellung:</strong> Alle audiovisuellen Assets (Bild, Animation, Sound) sowie die literarischen Texte (Lore) in diesem Webshop wurden maschinell mithilfe generativer Künstlicher Intelligenz (KI) in Kombination mit Scripts erstellt.</p>
@@ -57,9 +57,9 @@
                     </tr>
                     <tr>
                         <td><strong>Schriftarten (Fonts)</strong></td>
-                        <td>Segoe UI, Tahoma, Arial (Standard-System-Fonts)</td>
-                        <td>Microsoft Corporation / Apple Inc. (Urh. am Code der Font-Datei)</td>
-                        <td><strong>System-Schriftarten-Lizenz / Keine Web-Lizenzierung nötig.</strong> Die Einbindung erfolgt ausschließlich lokal über den Browser des Endnutzers via CSS. Da keine Font-Dateien auf den Server hochgeladen oder vervielfältigt werden, liegt keine urheberrechtliche Verwertungshandlung vor. Das Urheberrecht an der Schriftart wird somit nicht berührt.</td>
+                        <td>Segoe UI, Tahoma, Arial</td>
+                        <td>Microsoft Corporation / Apple Inc.</td>
+                        <td><strong>System-Schriftarten-Lizenz / Keine Web-Lizenzierung nötig.</strong> Die Einbindung erfolgt ausschließlich lokal über den Browser des Endnutzers via CSS. Da keine Font-Dateien auf den Server hochgeladen oder vervielfältigt werden, liegt keine urheberrechtliche Verwertungshandlung vor.</td>
                     </tr>
                     <tr>
                         <td><strong>Texte</strong></td>
@@ -69,9 +69,14 @@
                     </tr>
                 </tbody>
             </table>
+
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <strong>Zuletzt aktualisiert:</strong> <time datetime="2026-05-17">17. Mai 2026</time>
+            </p>
         </section>
     </main>
-<footer>
+
+    <footer>
         <p>
             <a href="lizenz.html">EULA</a> | 
             <a href="datenschutz.html">Datenschutz</a> | 
@@ -79,7 +84,11 @@
             <a href="barrierefreiheit.html">Barrierefreiheit</a> |
             <a href="jugendschutz.html">Jugendschutz</a>
         </p>
-        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+        <p style="margin-top:10px;">&copy; <span id="year"></span> OminousBytes GmbH.</p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

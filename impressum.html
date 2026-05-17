@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <section>
             <h1>Impressum & Kontakt (Aufgabe 6)</h1>
             <p><strong>Impressum gemäß § 5 ECG, § 14 UGB und Offenlegungspflicht gemäß § 24 & § 25 Mediengesetz:</strong></p>
@@ -36,7 +36,7 @@
             </p>
 
             <h3 style="margin-top: 30px;">Kontaktformular</h3>
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Nachricht gesendet (Mock).');">
+            <form id="contact-form" onsubmit="handleForm(event)">
                 <div class="form-group">
                     <label for="contact-name">Name:</label>
                     <input type="text" id="contact-name" name="name" required>
@@ -51,17 +51,41 @@
                 </div>
                 <button type="submit" class="btn-submit">Anfrage senden</button>
             </form>
+
+            <p id="form-status" style="display:none; color: #4ade80; font-weight: bold; margin-top: 15px;" role="status" aria-live="polite">
+                Vielen Dank! Ihre Nachricht wurde (fiktiv) erfolgreich gesendet.
+            </p>
+
+            <script>
+                function handleForm(e) {
+                    e.preventDefault();
+                    document.getElementById('form-status').style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                    // Audio-Feedback abspielen
+                    let audio = new Audio('sound_logo.wav');
+                    audio.play().catch(err => console.log("Audio play blocked by browser policies."));
+                }
+            </script>
+
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <strong>Zuletzt aktualisiert:</strong> <time datetime="2026-05-17">17. Mai 2026</time>
+            </p>
         </section>
     </main>
-<footer>
+
+    <footer>
         <p>
             <a href="lizenz.html">EULA</a> | 
             <a href="datenschutz.html">Datenschutz</a> | 
-            <a href="impressum.html">Impressum</a> | 
+            <a href="impressum.html" aria-current="page">Impressum</a> | 
             <a href="barrierefreiheit.html">Barrierefreiheit</a> |
             <a href="jugendschutz.html">Jugendschutz</a>
         </p>
-        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+        <p style="margin-top:10px;">&copy; <span id="year"></span> OminousBytes GmbH.</p>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
