@@ -3,74 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horde Onslaught - Offizieller Shop | OminousBytes GmbH</title>
-    <style>
-        /* --- ALLGEMEINE STYLES & WCAG COMPLIANCE --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --bg-color: #111114;
-            --card-bg: #1a1a22;
-            --text-primary: #f0f0f5;
-            --text-secondary: #a0a0b0;
-            --accent-color: #ffaa00; 
-            --accent-hover: #ffcc66;
-            --border-color: #2a2a35;
-        }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; padding-bottom: 60px; }
-        *:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
-        
-        .skip-link { position: absolute; top: -100px; left: 10px; background: var(--accent-color); color: #000; padding: 10px; z-index: 100; text-decoration: none; font-weight: bold; }
-        .skip-link:focus { top: 10px; }
-
-        header { background-color: #0b0b0d; border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: block; }
-        .logo-text { font-size: 20pt; font-weight: bold; color: var(--text-primary); text-transform: uppercase; display: inline-block; }
-        .logo-text span { color: var(--accent-color); }
-        
-        nav { display: inline-block; float: right; margin-top: 8px; }
-        nav ul { list-style: none; }
-        nav ul li { display: inline-block; margin-left: 20px; }
-        nav ul li a { color: var(--text-secondary); text-decoration: none; font-weight: 600; }
-        nav ul li a:hover { color: var(--accent-color); }
-        .clear { clear: both; }
-
-        main { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-        section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 30px; margin-bottom: 40px; }
-        
-        h1 { font-size: 24pt; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 25px; }
-        h2 { font-size: 18pt; border-left: 4px solid var(--accent-color); padding-left: 12px; margin-top: 10px; margin-bottom: 15px; }
-        h3 { font-size: 14pt; color: var(--accent-color); margin-top: 25px; margin-bottom: 10px; }
-        p { margin-bottom: 15px; color: var(--text-secondary); }
-        strong { color: var(--text-primary); }
-
-        .product-hero { background: linear-gradient(135deg, #221414 0%, #13131a 100%); border-left: 6px solid var(--accent-color); }
-        
-        .media-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
-        .media-box { background-color: #0f0f13; border: 1px solid #444; padding: 15px; border-radius: 4px; flex: 1; min-width: 300px; text-align: center; }
-        .media-box img { max-width: 100%; height: auto; border-radius: 4px; margin-top: 10px; border: 1px solid #333; }
-        .media-box audio { width: 100%; margin-top: 10px; }
-        .media-box a { color: var(--accent-color); text-decoration: none; }
-
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 10.5pt; }
-        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
-        th { background-color: #111116; color: var(--accent-color); }
-        tr:nth-child(even) { background-color: #15151c; }
-
-        .price-tag { font-size: 22pt; font-weight: bold; color: var(--accent-color); margin: 20px 0; }
-        .btn-buy { background-color: var(--accent-color); color: #000; padding: 12px 35px; font-size: 13pt; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; }
-    </style>
+    <title>Horde Onslaught - Shop | OminousBytes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Direkt zum Hauptinhalt springen</a>
-
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
     <header>
         <div class="nav-container">
             <div class="logo-text">Ominous<span>Bytes</span></div>
             <nav>
                 <ul>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#copyright">Lizenzen & Urheberrecht</a></li>
-                    <li><a href="#about">Marke</a></li>
+                    <li><a href="index.html" class="active">Shop</a></li>
+                    <li><a href="about.html">Über uns (Marke)</a></li>
+                    <li><a href="urheberrecht.html">Medienhinweise</a></li>
                 </ul>
             </nav>
             <div class="clear"></div>
@@ -78,9 +23,9 @@
     </header>
 
     <main id="main-content">
-        <section id="shop" class="product-hero">
+        <section class="product-hero">
             <h1>Horde Onslaught</h1>
-            <p><strong>Erlebe pure, unbarmherzige Klingen-Action.</strong> Ein düsterer, skillbasierter Hack-and-Slay-Horde-Survival-Shooter mit reinem Nahkampf-Fokus.</p>
+            <p><strong>Erlebe pure, unbarmherzige Klingen-Action.</strong> Ein düsterer, skillbasierter Hack-and-Slay-Horde-Survival-Game mit reinem Nahkampf-Fokus.</p>
             
             <h3>Multimedia-Inhalte (Aufgabe 2)</h3>
             <div class="media-grid">
@@ -88,92 +33,54 @@
                     <strong>Bild / Grafik</strong><br>
                     <img src="screenshot.png" alt="Gameplay Szene von Horde Onslaught">
                 </div>
-                
                 <div class="media-box">
                     <strong>Animation / Video</strong><br>
-                    <img src="animation.gif" alt="Kurze Animation eines roten Blocks">
+                    <img src="animation.gif" alt="Kurze Animation">
                 </div>
-
                 <div class="media-box">
                     <strong>Musik / Soundeffekt</strong><br>
-                    <audio controls>
-                        <source src="sound_logo.wav" type="audio/wav">
-                        Ihr Browser unterstützt keine Audio-Elemente.
-                    </audio>
+                    <audio controls><source src="sound_logo.wav" type="audio/wav">Ihr Browser unterstützt keine Audio-Elemente.</audio>
                 </div>
-                
                 <div class="media-box">
                     <strong>Texte & Lore</strong><br>
-                    <p style="margin-top:10px;"><a href="game_lore.txt" target="_blank">game_lore.txt ansehen</a></p>
+                    <p style="margin-top:10px;"><a href="game_lore.txt" target="_blank">Lore lesen</a></p>
                 </div>
             </div>
 
-            <div class="price-tag">Einmalverkauf: € 14,99</div>
-            <button class="btn-buy" onclick="alert('Kaufprozess gemockt.')">Spiel jetzt kaufen</button>
-        </section>
+            <div style="display: flex; align-items: center; gap: 15px; margin: 20px 0;">
+                <div style="background-color: #ff4d4d; color: #fff; font-weight: bold; padding: 10px 15px; border-radius: 4px; font-size: 14pt; border: 2px solid #fff;" aria-label="Altersfreigabe ab 18 Jahren">PEGI 18</div>
+                <div class="price-tag" style="margin: 0;">Einmalverkauf: € 14,99</div>
+            </div>
 
-        <section id="copyright">
-            <h2>Aufgabe 2 - Urheberrechtshinweise und Lizenzen</h2>
-            <p>Für die Entwicklung dieses Webshops wurden verschiedene Medienarten lokal erstellt und eingebunden. Die nachfolgende Tabelle dokumentiert die Urheberrechtshinweise, Lizenzen und Verwertungsrechte für alle verwendeten Medientypen, um die rechtliche Einwandfreiheit zu garantieren.</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Medienart</th>
-                        <th>Verwendetes Asset (Datei)</th>
-                        <th>Urheber & Quelle</th>
-                        <th>Lizenz & Verwertungsrechte</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Bilder / Grafiken</strong></td>
-                        <td><code>screenshot.png</code></td>
-                        <td>OminousBytes GmbH (Inhouse)</td>
-                        <td><strong>Exklusives Nutzungsrecht.</strong> Alle Urheber- und Verwertungsrechte verbleiben uneingeschränkt beim Unternehmen. Jegliche Vervielfältigung durch Dritte ist untersagt.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Videos / Animationen</strong></td>
-                        <td><code>animation.gif</code></td>
-                        <td>OminousBytes GmbH (Inhouse)</td>
-                        <td><strong>Exklusives Nutzungsrecht.</strong> Die Animation dient als Teaser-Material. Keine Weitergabe oder Modifikation ohne ausdrückliche schriftliche Genehmigung (All Rights Reserved).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Musik / Soundeffekte</strong></td>
-                        <td><code>sound_logo.wav</code></td>
-                        <td>OminousBytes Audio Dept.</td>
-                        <td><strong>Exklusives Nutzungsrecht.</strong> Der erzeugte düstere Synthesizer-Akkord dient als akustische Hörmarke. Das Vervielfältigungs- und Senderecht liegt alleinig beim Unternehmen.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Schriftarten (Fonts)</strong></td>
-                        <td>Segoe UI, Tahoma, Arial</td>
-                        <td>Microsoft Corporation / Apple Inc.</td>
-                        <td><strong>System-Schriftarten-Lizenz.</strong> Nutzung erfolgt über die CSS-Eigenschaft <code>font-family</code>. Da die Schriften lokal auf dem Gerät des Endnutzers vorliegen, ist keine gesonderte Web-Lizenzierung (z.B. WOFF-Upload) nötig, was urheberrechtliche Abmahnrisiken eliminiert.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Texte</strong></td>
-                        <td><code>game_lore.txt</code> & Web-Copy</td>
-                        <td>OminousBytes Narrative Team</td>
-                        <td><strong>Exklusives Urheberrecht.</strong> Die textliche Ausgestaltung der Lore sowie der AGB und Beschreibungstexte unterliegen dem Urheberrecht der OminousBytes GmbH nach § 2 UrhG.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <button class="btn-buy" onclick="verifiziereAlter()">Produkt Kaufen</button>
 
-        <section id="about">
-            <h2>Über uns & Markenkonzept (Aufgabe 3)</h2>
-            <p>Die <strong>OminousBytes GmbH</strong> sichert ihr geistiges Eigentum durch die folgenden drei etablierten Markenformen in den Nizza-Klassen 9 und 41 ab:</p>
-            <ul>
-                <li><strong>Wortmarke:</strong> HORDE ONSLAUGHT (Eingetragen als reine Textmarke).</li>
-                <li><strong>Bildmarke:</strong> Das Screenshot-Layout und das noch zu finalisierende Wappen-Logo.</li>
-                <li><strong>Hörmarke:</strong> Der 3-sekündige Synthesizer-Akkord, der in der Datei <code>sound_logo.wav</code> hinterlegt ist und als Intro für das Spiel dient.</li>
-            </ul>
-        </section>
-        
-        <section id="impressum">
-            <h2>Impressum (Aufgabe 6)</h2>
-            <p>OminousBytes GmbH | Graben 12, 1010 Wien | Firmenbuch: FN 987654 y | ATU99999999<br>Kontakt: contact@ominousbytes.at</p>
+            <script>
+                function verifiziereAlter() {
+                    const jahr = prompt("Jugendschutz-Überprüfung: Bitte geben Sie Ihr Geburtsjahr ein (YYYY):");
+                    if (jahr === null) return; // Abbrechen gedrückt
+                    
+                    const aktuellesJahr = new Date().getFullYear();
+                    const alter = aktuellesJahr - parseInt(jahr);
+
+                    if (isNaN(alter) || alter < 18) {
+                        alert("Zugriff verweigert: Dieses Spiel enthält explizite Gewaltdarstellungen und ist gemäß Wiener Jugendschutzgesetz (§ 11 WJsG) strikt erst ab 18 Jahren freigegeben.");
+                    } else {
+                        alert("Altersverifikation erfolgreich (Mock): Sie sind berechtigt, das digitale Produkt zu erwerben. Der fiktive Checkout-Prozess wurde gestartet.");
+                    }
+                }
+            </script>
         </section>
     </main>
+
+    <footer>
+        <p>
+            <a href="lizenz.html">EULA</a> | 
+            <a href="datenschutz.html">Datenschutz</a> | 
+            <a href="impressum.html">Impressum</a> | 
+            <a href="barrierefreiheit.html">Barrierefreiheit</a> |
+            <a href="jugendschutz.html">Jugendschutz</a>
+        </p>
+        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+    </footer>
 </body>
 </html>

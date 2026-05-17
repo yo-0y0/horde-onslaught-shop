@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugendschutz | OminousBytes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Ominous<span>Bytes</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Shop</a></li>
+                    <li><a href="about.html">Über uns (Marke)</a></li>
+                    <li><a href="urheberrecht.html">Medienhinweise</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section>
+            <h1>Jugendschutzkonzept & Altersverifikation</h1>
+            <p>Da unser Softwareprodukt "Horde Onslaught" explizite Gewaltdarstellungen enthält, fällt der Vertrieb unter die gesetzlichen Bestimmungen der landesrechtlichen Jugendschutzgesetze (z. B. <strong>§ 11 Wiener Jugendschutzgesetz - WJsG</strong>).</p>
+            
+            <h3>1. Altersfreigabe und Kennzeichnung</h3>
+            <p>Das Spiel wurde intern nach den Kriterien des europäischen Verbandes <strong>PEGI (Pan European Game Information)</strong> bewertet und mit der Altersstufe <strong>PEGI 18</strong> (ausschließlich für Erwachsene freigegeben) eingestuft. Gemäß den gesetzlichen Vorgaben ist diese Alterskennzeichnung auf der Verkaufsplattform gut sichtbar direkt neben dem Kauf-Button sowie in den Metadaten platziert, um Verbraucher und Erziehungsberechtigte vorab unmissverständlich zu informieren.</p>
+            
+            <h3>2. Technische Umsetzung im Echtbetrieb (AVS)</h3>
+            <p>Um der gesetzlichen Pflicht nachzugehen, jugendgefährdende Medien für Minderjährige unzugänglich zu machen, ist ein einstufiges Altersverifikationssystem vor dem Kaufabschluss via dem Zahlungsmedium implementiert:</p>
+            <ul>
+                <li><strong>Zahlungsmedium:</strong> Ausschluss von anonymen Zahlungsmethoden, die Minderjährigen frei zugänglich sind (wie ungesicherte Prepaid-Karten). Es werden nur verifizierte Zahlungsmedien akzeptiert, die den Nachweis der Volljährigkeit zwingend voraussetzen (z. B. Kreditkarten).</li>
+            </ul>
+
+            <h3>3. Umsetzung auf dieser Übungswebsite (Mock-Verfahren)</h3>
+            <p>Da es sich um eine statische Website handelt, wird der Verifikationsprozess beim Klick auf "Produkt Kaufen" simuliert. Das System prüft mittels einer JavaScript-Eingabemaske das fiktive Geburtsdatum des Nutzers und verweigert bei einer Unterschreitung des 18. Lebensjahres den Zugriff auf den simulierten Kaufabschluss.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="lizenz.html">EULA</a> | 
+            <a href="datenschutz.html">Datenschutz</a> | 
+            <a href="impressum.html">Impressum</a> | 
+            <a href="barrierefreiheit.html">Barrierefreiheit</a> |
+            <a href="jugendschutz.html" class="active">Jugendschutz</a>
+        </p>
+        <p style="margin-top:10px;">&copy; 2026 OminousBytes GmbH.</p>
+    </footer>
+</body>
+</html>
